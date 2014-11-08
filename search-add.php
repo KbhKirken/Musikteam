@@ -81,13 +81,30 @@ function addSong(name, id)
 <?php
 
 if (isset($_SESSION['logget_ind'])) {
-	$sTitle = $_POST['searchTitle'];
-	$sText = $_POST['searchText'];
-	$sAuthor = $_POST['searchAuthor'];
-	$sProTextOnly = $_POST['searchProTextOnly'];
+	$sTitle = '';
+	if(isset($_POST['searchTitle'])){
+		$sTitle = $_POST['searchTitle'];		
+	}
+	$sText = '';
+	if(isset($_POST['searchText'])){
+		$sText = $_POST['searchText'];		
+	}
+	$sAuthor='';
+	if(isset($_POST['searchAuthor'])){
+		$sAuthor = $_POST['searchAuthor'];		
+	}
+	$sProTextOnly='';
+	if(isset($_POST['searchProTextOnly'])){
+		$sProTextOnly = $_POST['searchProTextOnly'];
+	}
 
 	if ($sTitle != "on" && $sText != "on" && $sAuthor != "on") {
 		$sTitle = "on";
+	}
+
+	$textfield = '';
+	if(isset($_POST['textfield'])){
+		$textfield = $_POST['textfield'];
 	}
 
 ?>
@@ -96,7 +113,7 @@ if (isset($_SESSION['logget_ind'])) {
 
 		<form id="form1" name="form1" method="post" action="search-add.php">
 			<label>
-				<input name="textfield" type="text" size="50" value="<?php echo $_POST['textfield']; ?>"/>
+				<input name="textfield" type="text" size="50" value="<?php echo $textfield; ?>"/>
 			</label>
 			<label>&nbsp;
 				<input class="submit_btn" type="submit" name="Submit" value="Søg" />
@@ -119,7 +136,7 @@ if (isset($_SESSION['logget_ind'])) {
 
 <?php
 	// If a search text has been entered then do a search
-	if ($_POST['textfield'] != '' || $_GET['showall'] > 0) {
+	if (isset($_POST['textfield']) || isset($_GET['showall'])) {
 ?>
 
 		<table id="search_result_table" cellspacing="0" cellpadding="3">
@@ -150,23 +167,23 @@ if (isset($_SESSION['logget_ind'])) {
 			$strSearchIn = "";
 
 			if ($sTitle == "on") {
-				$strSearchIn .= CreateLikeClause("Sang.Titel", $_POST['textfield']);
+				$strSearchIn .= CreateLikeClause("Sang.Titel", $textfield);
 			}
 
 			if ($sAuthor == "on") {
 				if ($strSearchIn != "") {
 					$strSearchIn .= " OR ";
 				}
-				$strSearchIn .= CreateLikeClause("Sang.Identifikation", $_POST['textfield']);
+				$strSearchIn .= CreateLikeClause("Sang.Identifikation", $textfield);
 			}
 
 			if ($sText == "on") {
 				if ($strSearchIn != "") {
 					$strSearchIn .= " OR ";
 				}
-				$strSearchIn .= CreateLikeClause("Sang.ProTekst", $_POST['textfield']);
+				$strSearchIn .= CreateLikeClause("Sang.ProTekst", $textfield);
 				$strSearchIn .= " OR ";
-				$strSearchIn .= CreateLikeClause("Slide2.Slidetekst", $_POST['textfield']);
+				$strSearchIn .= CreateLikeClause("Slide2.Slidetekst", $textfield);
 			}
 
 			if ($sProTextOnly == "on") {

@@ -1,11 +1,12 @@
 <?php
-//ini_set('display_errors', 'On');
-//error_reporting(E_ALL);
-
-if (!$_SESSION['logget_ind']) {
-    header("Location: ".$ROOT_URL."auth/thecity/");
-    die(); 
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
+session_start();
+if (!isset($_SESSION['logget_ind']) || !$_SESSION['logget_ind']) {
+    header("Location: http://musikteam.dk/auth/thecity/");
+    exit(); 
 }
+    
 ?>
 <!DOCTYPE html>
 <html>

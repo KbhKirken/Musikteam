@@ -64,15 +64,14 @@ class ServiceCreator {
 		$query = "SELECT Slidetekst FROM Slide2 WHERE SangID=" . $songid ." ORDER BY SlideID";
 		$result = doSQLQuery($query);
 		$text4slides = array();
-		
 		$insertedSong = false;
 		
 		if ($slides != "") {
 			$texts = array();
 			while ($line = db_fetch_array($result)) {
 				$insertedSong = true;
-				$texts[] = stripslashes(htmlspecialchars($line["Slidetekst"],ENT_NOQUOTES));
-				$ol->addVerse(stripslashes(htmlspecialchars($line["Slidetekst"],ENT_NOQUOTES)));
+				$texts[] = stripslashes(htmlspecialchars($line["Slidetekst"],ENT_NOQUOTES, 'ISO-8859-1'));
+				$ol->addVerse(stripslashes(htmlspecialchars($line["Slidetekst"],ENT_NOQUOTES, 'ISO-8859-1')));
 			}
 			$verseorder = "";
 			for($slideIndex = 0; $slideIndex < strlen($slides); $slideIndex++) {
@@ -155,8 +154,10 @@ class ServiceCreator {
 			$json .= "{ \"serviceitem\" : ";
 			//$json .= json_encode($item, JSON_PRETTY_PRINT);
 			$json .= json_encode($item);
+			echo var_dump(json_encode($item, JSON_PRETTY_PRINT));
 			$json .= " } ";
 		}
+		exit;
 		$json .= " ] ";
 		return $json;
 	}
@@ -212,9 +213,8 @@ if ($songcount == -1) {
 		
 	}
 }
-
-echo $content->returnService();
-
+//echo $content->returnService();
+echo $content->getJSON();
 closeDB();
 
 /*

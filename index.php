@@ -1,11 +1,6 @@
-<?php 
-header("location: http://musikteam.dk/auth/thecity");
-exit;
-?>
 <?php $strTitle="Password - login";?>
 
 <?php include("header.php"); ?>
-
 
 <body class="home">
 
@@ -13,8 +8,6 @@ exit;
 	<div id="header"></div>
 
 	<div class="block_1">
-	
-   
 		
     <div class="login"> 
       <form action="login.php" method="post">

@@ -1,7 +1,7 @@
 <?php
 
 // The root url of the site, must be for the form "musikteam.com" (do not include http://)
-$ROOT_URL = "localhost/musikteam/";
+$ROOT_URL = "localhost/musikteam:3306/";
 
 // Name of the admin
 $WEBMASTER_NAME = "Københavnerkirkens Musikteam";
@@ -49,10 +49,10 @@ function openDB() {
 	global $DB_TYPE;
 	if ($DB_TYPE == "mysql") {
 		global $conn;
-		$user="musikteam";
-		$password="musikteamkode";
+		$user="root";
+		$password="";
 		$database="musikteam";
-		$host = "localhost";
+		$host = "localhost:3306";
 		$conn = mysqli_connect($host,$user,$password);
 		mysqli_select_db($conn, $database) or die( "Unable to select database");
 	} else if ($DB_TYPE == "odbc") {

@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 
 $strTitle="forside";
 include("header.php");
@@ -10,7 +10,8 @@ openDB();
 
 ?>
 
-<body class="home">
+<body class="home2">
+    	
 <div class="wrapper">
 	<div id="header">
 <?php

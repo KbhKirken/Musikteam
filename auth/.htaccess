@@ -1,4 +1,7 @@
 RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-d
+RewriteBase /loop/v1/
+
+This is garbage line
+
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ index.php [QSA,L]
+RewriteRule ^ index.php [QSA,L]
