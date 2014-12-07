@@ -14,6 +14,7 @@
 		'model'=>'development'
 		));
 
+
 	$app->get('/', function(){
 	});
 
@@ -33,8 +34,17 @@
 		// }
 	});
 
-	$app->get('/songs/', function () {
-		$songs = ApiFactory::SongsApi()->getAll();
+	$app->get('/songs/', function () use (&$app) {
+		$currentPage = $app->request->get("currentPage");
+		$pageSize = $app->request->get("pageSize");
+
+		$songs = ApiFactory::SongsApi()->getAll($currentPage, $pageSize);
+		echo $songs;
+	});
+
+
+	$app->get('/songsinfo/', function () {
+		$songs = ApiFactory::SongsApi()->info();
 
 		echo $songs;
 	});
