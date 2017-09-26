@@ -13,7 +13,7 @@ $WEBMASTER_EMAIL = "admin@musikteam.com";
 $DB_TYPE = "mysql";
 
 // AccessKey for Endpoints
-$ACCESS_KEY = $_ENV["ACCESS_KEY"];
+$ACCESS_KEY = getenv("ACCESS_KEY");
 
 // temp mysql array, used by the db_result function
 $result_arr;
@@ -52,10 +52,10 @@ function openDB() {
 	global $DB_TYPE;
 	if ($DB_TYPE == "mysql") {
 		global $conn;
-		$user=$_ENV["DB_USER"];
-		$password=$_ENV["DB_PASSWORD"];
-		$database=$_ENV["DB_DATABASE"];
-		$host = $_ENV["DB_HOST"];
+		$user=getenv("DB_USER");
+		$password=getenv("DB_PASSWORD");
+		$database=getenv("DB_DATABASE");
+		$host = getenv("DB_HOST");
 		$conn = mysqli_connect($host,$user,$password);
 		mysqli_select_db($conn, $database) or die( "Unable to select database");
 	} else if ($DB_TYPE == "odbc") {
