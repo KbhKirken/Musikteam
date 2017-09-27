@@ -60,7 +60,9 @@ function openDB() {
 		$database=getenv("DB_DATABASE");
 		$host = getenv("DB_HOST");
 		$conn = mysqli_connect($host,$user,$password);
+		ini_set('max_execution_time', 0); 
 		mysqli_select_db($conn, $database) or die( "Unable to select database");
+		mysqli_set_charset($conn, 'utf8');
 	} else if ($DB_TYPE == "odbc") {
 		global $conn;
 		$conn = odbc_connect("MusikTeam", "", "");
