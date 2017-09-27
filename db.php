@@ -1,4 +1,7 @@
 <?php
+global $DB_TYPE;
+global $result_arr;
+global $conn;
 
 // The root url of the site, must be for the form "musikteam.com" (do not include http://)
 $ROOT_URL = "localhost/musikteam/";
