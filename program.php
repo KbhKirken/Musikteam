@@ -95,7 +95,7 @@
     
     } else {
     
-        if ($_GET['eventId'] == "") $eventId = -1;
+        if (!isset($_GET['eventId'])) $eventId = -1;
         else $eventId = $_GET['eventId'];
     
         $date = isset($_POST['date']) ? $_POST['date'] : '';

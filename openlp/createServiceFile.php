@@ -12,7 +12,7 @@ mb_internal_encoding("UTF-8");
 
 $content = new ServiceCreator();
 
-$eventId = $_GET['eventId'];
+$eventId = isset($_GET['eventId']) ? $_GET['eventId'] : '';
 // Should we do the whole database, or only some chosen ones.
 if ($eventId) {
     $content->createFromEventId($eventId);
@@ -20,7 +20,7 @@ if ($eventId) {
 	$content->insertAllSongs();
 }
 
-if($_GET['email']) {
+if(isset($_GET['email'])) {
     $content->sendTo($_GET['email'], $WEBMASTER_EMAIL);
 } else {
     echo $content->returnService();

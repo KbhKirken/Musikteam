@@ -10,7 +10,7 @@ $today = date('d', $now);
 $curmonth = date('m', $now);
 $curyear = date('Y', $now);
 
-if ($_GET['day'] != 0 && $_GET['month'] != 0 && $_GET['year'] != 0) {
+if (isset($_GET['day']) && $_GET['day'] != 0 && $_GET['month'] != 0 && $_GET['year'] != 0) {
 	$day = $_GET['day'];
 	$month = $_GET['month'];
 	$year = $_GET['year'];
@@ -97,8 +97,8 @@ while ($day_num <= $days_in_month)
 {
 
 	$class = "days";
-	if ($day_num == $today) $class = today;
-	else if ($day_num == $arrDate) $class = days;
+	if ($day_num == $today) $class = 'today';
+	else if ($day_num == $arrDate) $class = 'days';
 
 /*	if ($day_num == $today) {
 		echo "<td class=today>$day_num</td>";

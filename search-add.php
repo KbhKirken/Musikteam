@@ -81,10 +81,10 @@ function addSong(name, id)
 <?php
 
 if (isset($_SESSION['logget_ind'])) {
-	$sTitle = $_POST['searchTitle'];
-	$sText = $_POST['searchText'];
-	$sAuthor = $_POST['searchAuthor'];
-	$sProTextOnly = $_POST['searchProTextOnly'];
+	$sTitle = isset($_POST['searchTitle']) ? $_POST['searchTitle'] : '';
+	$sText = isset($_POST['searchText']) ? $_POST['searchText'] : '';
+	$sAuthor = isset($_POST['searchAuthor']) ? $_POST['searchAuthor'] : '';
+	$sProTextOnly = isset($_POST['searchProTextOnly']) ? $_POST['searchProTextOnly'] : '';
 
 	if ($sTitle != "on" && $sText != "on" && $sAuthor != "on") {
 		$sTitle = "on";
@@ -96,7 +96,7 @@ if (isset($_SESSION['logget_ind'])) {
 
 		<form id="form1" name="form1" method="post" action="search-add.php">
 			<label>
-				<input name="textfield" type="text" size="50" value="<?php echo $_POST['textfield']; ?>"/>
+				<input name="textfield" type="text" size="50" value="<?php echo isset($_POST['textfield']) ? $_POST['textfield'] : ''; ?>"/>
 			</label>
 			<label>&nbsp;
 				<input class="submit_btn" type="submit" name="Submit" value="Søg" />
@@ -119,7 +119,7 @@ if (isset($_SESSION['logget_ind'])) {
 
 <?php
 	// If a search text has been entered then do a search
-	if ($_POST['textfield'] != '' || $_GET['showall'] > 0) {
+	if (isset($_POST['textfield']) || (isset($_GET['showall']) && $_GET['showall'] > 0)) {
 ?>
 
 		<table id="search_result_table" cellspacing="0" cellpadding="3">
@@ -135,7 +135,7 @@ if (isset($_SESSION['logget_ind'])) {
 
 <?php
 		// Show all songs, or do a search
-		if ($_GET['showall'] > 0) {
+		if (isset($_GET['showall']) && $_GET['showall'] > 0) {
 			if ($_GET['showall'] == 2) {
 				$query = "SELECT DISTINCT Sang.SangId,Sang.Titel,Sang.Identifikation,Sang.Udgave,Sang.Lydfil, sb.BrugerId FROM (Sang LEFT OUTER JOIN Slide2 ON Sang.SangID = Slide2.SangID) LEFT JOIN (SELECT * FROM SangBruger WHERE BrugerId = ".$_SESSION['brugerid'].") sb ON sb.SangId = Sang.SangId WHERE " . CreateLikeClause("Sang.ProTekst", "]") . " ORDER BY Sang.Titel";
 			} 
