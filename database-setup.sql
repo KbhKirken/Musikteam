@@ -167,23 +167,6 @@ CREATE TABLE IF NOT EXISTS `SangBruger` (
   KEY `SangId` (`SangId`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-
--- --------------------------------------------------------
-
---
--- Table structure for table `Slide`
---
-
-CREATE TABLE IF NOT EXISTS `Slide` (
-  `SangID` int(11) NOT NULL DEFAULT '0',
-  `SlideID` varchar(1) NOT NULL DEFAULT '',
-  `Slidetekst` longtext NOT NULL,
-  PRIMARY KEY (`SangID`,`SlideID`),
-  KEY `SangID` (`SangID`),
-  KEY `SlideID` (`SlideID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-
 -- --------------------------------------------------------
 
 --
