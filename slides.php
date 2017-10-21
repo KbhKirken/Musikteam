@@ -35,6 +35,18 @@
     <textarea cols="60" rows="8" id="slideG"><?php print(stripslashes($slide_arr[6])); ?></textarea><br />
     <span class="stamdata">Slide H: (maximum 11 linier)</span><br />
     <textarea cols="60" rows="8" id="slideH"><?php print(stripslashes($slide_arr[7])); ?></textarea><br />
+    <span class="stamdata">Slide I: (maximum 11 linier)</span><br />
+    <textarea cols="60" rows="8" id="slideI"><?php print(stripslashes($slide_arr[8])); ?></textarea><br />
+    <span class="stamdata">Slide J: (maximum 11 linier)</span><br />
+    <textarea cols="60" rows="8" id="slideJ"><?php print(stripslashes($slide_arr[9])); ?></textarea><br />
+    <span class="stamdata">Slide K: (maximum 11 linier)</span><br />
+    <textarea cols="60" rows="8" id="slideK"><?php print(stripslashes($slide_arr[10])); ?></textarea><br />
+    <span class="stamdata">Slide L: (maximum 11 linier)</span><br />
+    <textarea cols="60" rows="8" id="slideL"><?php print(stripslashes($slide_arr[11])); ?></textarea><br />
+    <span class="stamdata">Slide M: (maximum 11 linier)</span><br />
+    <textarea cols="60" rows="8" id="slideM"><?php print(stripslashes($slide_arr[12])); ?></textarea><br />
+    <span class="stamdata">Slide N: (maximum 11 linier)</span><br />
+    <textarea cols="60" rows="8" id="slideN"><?php print(stripslashes($slide_arr[13])); ?></textarea><br />
     <div id="refresh">
         <p>	&nbsp;<br />&nbsp;</p>
     </div>

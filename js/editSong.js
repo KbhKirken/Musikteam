@@ -171,6 +171,12 @@ function copyFromSlides()
 		if (document.getElementById('slideF').value != "") text += document.getElementById('slideF').value + "\n\n";
 		if (document.getElementById('slideG').value != "") text += document.getElementById('slideG').value + "\n\n";
 		if (document.getElementById('slideH').value != "") text += document.getElementById('slideH').value + "\n\n";
+		if (document.getElementById('slideI').value != "") text += document.getElementById('slideI').value + "\n\n";
+		if (document.getElementById('slideJ').value != "") text += document.getElementById('slideJ').value + "\n\n";
+		if (document.getElementById('slideK').value != "") text += document.getElementById('slideK').value + "\n\n";
+		if (document.getElementById('slideL').value != "") text += document.getElementById('slideL').value + "\n\n";
+		if (document.getElementById('slideM').value != "") text += document.getElementById('slideM').value + "\n\n";
+		if (document.getElementById('slideN').value != "") text += document.getElementById('slideN').value + "\n\n";
 
 		document.getElementById('editArea').value = text;
 		update();
@@ -206,7 +212,10 @@ function copyToSlides()
 	if ((trim(document.getElementById('slideA').value) != "") || (trim(document.getElementById('slideB').value) != "") 
 		|| (trim(document.getElementById('slideC').value) != "") || (trim(document.getElementById('slideD').value) != "") 
 		|| (trim(document.getElementById('slideE').value) != "") || (trim(document.getElementById('slideF').value) != "") 
-		|| (trim(document.getElementById('slideG').value) != "") || (trim(document.getElementById('slideH').value) != ""))
+		|| (trim(document.getElementById('slideG').value) != "") || (trim(document.getElementById('slideH').value) != "") 
+		|| (trim(document.getElementById('slideI').value) != "") || (trim(document.getElementById('slideJ').value) != "") 
+		|| (trim(document.getElementById('slideK').value) != "") || (trim(document.getElementById('slideL').value) != "") 
+		|| (trim(document.getElementById('slideM').value) != "") || (trim(document.getElementById('slideN').value) != ""))
 	{
 		$doit = confirm('Dette vil slette al eksisterende tekst i slidesne, er du sikker?');
 	}
@@ -220,6 +229,12 @@ function copyToSlides()
 		document.getElementById('slideF').value = "";
 		document.getElementById('slideG').value = "";
 		document.getElementById('slideH').value = "";
+		document.getElementById('slideI').value = "";
+		document.getElementById('slideJ').value = "";
+		document.getElementById('slideK').value = "";
+		document.getElementById('slideL').value = "";
+		document.getElementById('slideM').value = "";
+		document.getElementById('slideN').value = "";
 	}
 	
 }
@@ -299,7 +314,13 @@ function saveSlides()
 		text += "slideE=" + document.getElementById('slideE').value + "&";
 		text += "slideF=" + document.getElementById('slideF').value + "&";
 		text += "slideG=" + document.getElementById('slideG').value + "&";
-		text += "slideH=" + document.getElementById('slideH').value;
+		text += "slideH=" + document.getElementById('slideH').value + "&";
+		text += "slideI=" + document.getElementById('slideI').value + "&";
+		text += "slideJ=" + document.getElementById('slideJ').value + "&";
+		text += "slideK=" + document.getElementById('slideK').value + "&";
+		text += "slideL=" + document.getElementById('slideL').value + "&";
+		text += "slideM=" + document.getElementById('slideM').value + "&";
+		text += "slideN=" + document.getElementById('slideN').value;
 		
 		if (songID == -1) {
 			text += "&title=" + trim(document.getElementById('Titel').value);
@@ -488,7 +509,13 @@ function saveAll()
 	text += "slideE=" + fixAmp(document.getElementById('slideE').value) + "&";
 	text += "slideF=" + fixAmp(document.getElementById('slideF').value) + "&";
 	text += "slideG=" + fixAmp(document.getElementById('slideG').value) + "&";
-	text += "slideH=" + fixAmp(document.getElementById('slideH').value);
+	text += "slideH=" + fixAmp(document.getElementById('slideH').value) + "&";
+	text += "slideI=" + fixAmp(document.getElementById('slideI').value) + "&";
+	text += "slideJ=" + fixAmp(document.getElementById('slideJ').value) + "&";
+	text += "slideK=" + fixAmp(document.getElementById('slideK').value) + "&";
+	text += "slideL=" + fixAmp(document.getElementById('slideL').value) + "&";
+	text += "slideM=" + fixAmp(document.getElementById('slideM').value) + "&";
+	text += "slideN=" + fixAmp(document.getElementById('slideN').value);
 	
 
 	// Send the data to the server

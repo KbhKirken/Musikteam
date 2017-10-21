@@ -42,7 +42,7 @@ if (isset($_SESSION['logget_ind'])) {
 		$result = doSQLQuery($query);
 
 		// Now insert the new slides
-		for($c='A'; $c < 'I';$c++) {
+		for($c='A'; $c < 'O';$c++) {
 			$query = "INSERT INTO Slide2 (SangID,SlideID,Slidetekst) VALUES ";
 			if ($_POST['slide'.$c] != "") {
 				$query = $query . "(". $id .",'".$c."','" . db_fix_str($_POST['slide'.$c]) . "');";
