@@ -193,9 +193,7 @@ function NewWindow(mypage, myname, scroll)
 <body class="home" onload = "first_load()">
 <div id="divSetlist" class="divSetlist"></div>
 
-	<table width="790" border="0">
-      <tr>
-        <td><div class="wrapper_2">
+				<div class="wrapper_2">
 		<div id="header_2">
 			<div id="skriv_sang_nav">
 				<a href="#" onClick="javascript:text_input();"><img src="img/tekst_down.gif" width="101" height="27" border="0" id="text_img" /></a><a onClick="javascript:layout_edit();" href="#"><img src="img/layout_up.gif" width="101" height="27" border="0" id="layout_img" /></a><a href="#" onClick="javascript:slides_edit();"><img src="img/slides_up.gif" width="101" height="27" border="0" id="slides_img" /></a>
@@ -203,7 +201,7 @@ function NewWindow(mypage, myname, scroll)
           </div>
 		</div>
 
-		<div class="block_1">
+		<div class="block_1 flex-container">
 		
 			<div id="sidebar_2">
 				<div class="sidebar_top"> Stamdata </div>
@@ -351,9 +349,7 @@ function NewWindow(mypage, myname, scroll)
 
 		</div> <!-- block_1 -->
 	</div> <!-- wrapper_2 -->
-</td>
-      </tr>
-    </table>
+
 	<p>&nbsp;</p>
 
 

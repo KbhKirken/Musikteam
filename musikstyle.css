@@ -472,12 +472,13 @@ a:active {
 	left: 213px;
 }
 
+.flex-container {
+	display: flex;
+}
+
 #sidebar_2 {
-	float: left;
 	width: 213px;
 	height: 100%;
-	padding-left:7px;
-
 }
 .teams_page {
 	width:800px;
@@ -490,10 +491,7 @@ a:active {
 
 }
 .tekst {
-	position:relative;
-	margin-top:20px;
-    margin-bottom: 20px;
-	float:right;
+	flex-grow: 1;
 	padding:4px;
 	background-color:#CCCCCC;
 
