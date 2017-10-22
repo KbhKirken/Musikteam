@@ -97,6 +97,24 @@ class ServiceCreator {
 					case 'H':
 						$index = 7;
 						break;
+					case 'I':
+						$index = 8;
+						break;
+					case 'J':
+						$index = 9;
+						break;
+					case 'K':
+						$index = 10;
+						break;
+					case 'L':
+						$index = 11;
+						break;
+					case 'M':
+						$index = 12;
+						break;
+					case 'N':
+						$index = 13;
+						break;
 				}
 				$serviceitem->addVerse(("V".($index+1)), $texts[$index]);
 				$verseorder .= "V".($index+1) . " ";
