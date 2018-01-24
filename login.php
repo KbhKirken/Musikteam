@@ -2,7 +2,7 @@
     ini_set('display_errors', 'On');
     error_reporting(E_ALL);
 
-if($_SERVER["SERVER_NAME"] == "localhost" && isset($_REQUEST["thecityid"])){
+if(isset($_REQUEST["thecityid"])){
     include("db.php");
     openDB();
     
