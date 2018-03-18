@@ -1,0 +1,11 @@
+language: python
+sudo: false
+
+install:
+  - pip install -r ./scripts/package.txt
+
+deploy:
+  provider: script
+  script: python scripts/travis-deploy.py
+  on:
+    branch: develop
